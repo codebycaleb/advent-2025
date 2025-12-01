@@ -1,24 +1,10 @@
-# advent
+# Advent of Code 2025
 
-[![Package Version](https://img.shields.io/hexpm/v/advent)](https://hex.pm/packages/advent)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/advent/)
+✨ In Gleam! ✨
 
-```sh
-gleam add advent@1
-```
-```gleam
-import advent
+## Notes
 
-pub fn main() -> Nil {
-  // TODO: An example of the project in use
-}
-```
-
-Further documentation can be found at <https://hexdocs.pm/advent>.
-
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+- Input .txt files go in a top-level `inputs` directory (.gitignore'd)
+- I won't write anything in the `test` directory; this is for fun, not work
+- I don't know what I'm doing when it comes to Gleam (or with Typing), so please don't judge bad code lol
+- No promises that I do anything past day 1
