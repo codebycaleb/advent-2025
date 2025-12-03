@@ -17,16 +17,12 @@ type Turn {
 fn parse_line(line: String) -> Turn {
   case line {
     "L" <> steps_str -> {
-      case int.parse(steps_str) {
-        Ok(steps) -> Turn(Left, steps)
-        Error(_) -> panic
-      }
+      let assert Ok(steps) = int.parse(steps_str)
+      Turn(Left, steps)
     }
     "R" <> steps_str -> {
-      case int.parse(steps_str) {
-        Ok(steps) -> Turn(Right, steps)
-        Error(_) -> panic
-      }
+      let assert Ok(steps) = int.parse(steps_str)
+      Turn(Right, steps)
     }
     _ -> {
       panic as "Couldn't parse line. Check inputs/day01.txt."
@@ -88,7 +84,7 @@ fn part2(turns: List(Turn)) -> Int {
 }
 
 pub fn solve() {
-  let turns = utils.parse(filepath, parse_line)
+  let turns = utils.parse_lines(filepath, parse_line)
   echo part1(turns)
   echo part2(turns)
 }
