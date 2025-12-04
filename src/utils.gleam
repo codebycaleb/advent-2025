@@ -1,3 +1,4 @@
+import gleam/int
 import gleam/list
 import gleam/result
 import gleam/string
@@ -29,4 +30,9 @@ pub fn pow10(n: Int) -> Int {
     x if x <= 0 -> 1
     _ -> pow10(n - 1) * 10
   }
+}
+
+pub fn parse_int_or_explode(s: String) -> Int {
+  let assert Ok(n) = int.parse(s) as "AHHH!!! BAD INPUT!!"
+  n
 }
