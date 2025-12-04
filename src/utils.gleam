@@ -22,3 +22,11 @@ pub fn parse(
 pub fn parse_lines(path: String, with: fn(String) -> a) -> List(a) {
   parse(path, with, "\n")
 }
+
+/// pow10(6) -> 1_000_000
+pub fn pow10(n: Int) -> Int {
+  case n {
+    x if x <= 0 -> 1
+    _ -> pow10(n - 1) * 10
+  }
+}

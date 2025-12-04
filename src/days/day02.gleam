@@ -21,14 +21,6 @@ fn parse_range(range_str: String) -> Range {
   }
 }
 
-/// pow10(6) -> 1_000_000
-fn pow10(n: Int) -> Int {
-  case n {
-    x if x <= 0 -> 1
-    _ -> pow10(n - 1) * 10
-  }
-}
-
 /// The list of ints that cleanly divide n (excluding n itself).
 /// divisors(6) -> [1, 2, 3]
 fn divisors(n: Int) -> List(Int) {
@@ -42,9 +34,9 @@ fn complex_patterns(digits: Int) -> List(Int) {
   divisors(digits)
   |> list.flat_map(fn(q) {
     // (6,1) -> 111111;  (6,2) -> 101010, 111111, 121212..; (6,3) -> 100100, 101101, ...
-    let pattern = { pow10(digits) - 1 } / { pow10(q) - 1 }
+    let pattern = { utils.pow10(digits) - 1 } / { utils.pow10(q) - 1 }
     // 1 -> 1..9, 2 -> 10..99, 3 -> 100..999
-    let range = list.range(pow10(q - 1), pow10(q) - 1)
+    let range = list.range(utils.pow10(q - 1), utils.pow10(q) - 1)
     list.map(range, int.multiply(_, pattern))
   })
 }
@@ -61,8 +53,8 @@ fn double_patterns(digits: Int) -> List(Int) {
       // the rest of this is directly copied from complex_patterns.
       // we only care about the case where we repeat half the digits twice
       // (e.g. 101101 is okay but 101010 is not)
-      let pattern = { pow10(digits) - 1 } / { pow10(q) - 1 }
-      let range = list.range(pow10(q - 1), pow10(q) - 1)
+      let pattern = { utils.pow10(digits) - 1 } / { utils.pow10(q) - 1 }
+      let range = list.range(utils.pow10(q - 1), utils.pow10(q) - 1)
       list.map(range, int.multiply(_, pattern))
     }
   }
