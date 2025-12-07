@@ -1,4 +1,3 @@
-import gleam/function
 import gleam/list
 import gleam/set
 import gleam/string
@@ -77,7 +76,7 @@ fn part2_loop(grid: Grid) -> Grid {
 }
 
 pub fn solve() {
-  let input = utils.parse_lines(filepath, function.identity)
+  let input = filepath |> utils.read |> string.split("\n")
   let grid = parse_grid(input)
   echo part1(grid)
   echo part2(grid)

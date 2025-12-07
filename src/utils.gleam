@@ -4,7 +4,7 @@ import gleam/result
 import gleam/string
 import simplifile
 
-fn read(path: String) -> String {
+pub fn read(path: String) -> String {
   path
   |> simplifile.read()
   |> result.unwrap("Could not read file at " <> path)
