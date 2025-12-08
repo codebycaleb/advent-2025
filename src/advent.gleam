@@ -4,6 +4,7 @@ import days/day03
 import days/day04
 import days/day05
 import days/day06
+import days/day07
 import gleam/io
 
 pub fn main() -> Nil {
@@ -14,5 +15,6 @@ pub fn main() -> Nil {
   day04.solve()
   day05.solve()
   day06.solve()
+  day07.solve()
   io.println("Done!")
 }
